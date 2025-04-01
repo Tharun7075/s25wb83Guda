@@ -16,7 +16,10 @@ html(lang="en")
           ]
           //- Iterate over results to display each cake
           each cake in results
-            .col-sm-2
-              h3= cake.name
-              p Flavors: #{cake.flavors}
-              p Price: $#{cake.price}
+            .col-sm-4  // Adjusted column size for better responsiveness
+              .card
+                .card-body
+                  h5.card-title= cake.name
+                  p.card-text Flavors: #{cake.flavors}
+                  p.card-text Price: $#{cake.price}
+
