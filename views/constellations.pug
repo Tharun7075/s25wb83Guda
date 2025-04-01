@@ -1,11 +1,25 @@
 extends layout
 
 block content
-  h1= title
-  extends layout
-
-block content
   h1 Search Results - Constellations
+
+  - var results = [
+      { name: 'Orion', hemisphere: 'Northern', number_of_stars: 7 },
+      { name: 'Ursa Major', hemisphere: 'Northern', number_of_stars: 10 },
+      { name: 'Crux', hemisphere: 'Southern', number_of_stars: 4 }
+    ];
+
+  div.container-fluid
+    div.row
+      each constellation in results
+        div.col-sm-2
+          h3 #{constellation.name}
+          p Hemisphere: #{constellation.hemisphere}
+          p Stars: #{constellation.number_of_stars}
+         
+
+
+
 
 
 
