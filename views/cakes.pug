@@ -3,22 +3,12 @@ extends layout
 block content
   h1 Search Results - Cakes
 
-  //- Define the array of cakes using proper Pug unbuffered code
-  - var results = [
-      { flavor: "Chocolate", size: "Large", price: 15 },
-      { flavor: "Vanilla", size: "Medium", price: 10 },
-      { flavor: "Strawberry", size: "Small", price: 8 }
-    ]
-
-  //- Create the outer container div
   div.container-fluid
     div.row
-      //- Iterate over the results array and display each cake
       each cake in results
         div.col-sm-2
           h3 #{cake.flavor}
           p Size: #{cake.size}
           p Price: $#{cake.price}
 
-  //- Add a hyperlink to navigate to the cakes page
   a(href='/cakes') Go to Cakes Page

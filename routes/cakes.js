@@ -1,9 +1,15 @@
-const express = require('express');
-const router = express.Router();
+var express = require('express');
+var router = express.Router();
 
-// Route to render the Cakes page
-router.get('/', (req, res) => {
-    res.render('cakes');  // Ensure the template name matches `cakes.pug`
+/* GET cakes page. */
+router.get('/', function(req, res, next) {
+  const results = [
+    { flavor: "Chocolate", size: "Large", price: 15 },
+    { flavor: "Vanilla", size: "Medium", price: 10 },
+    { flavor: "Strawberry", size: "Small", price: 8 }
+  ];
+
+  res.render('cakes', { results });
 });
 
 module.exports = router;
