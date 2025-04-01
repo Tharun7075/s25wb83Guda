@@ -1,10 +1,19 @@
-// cakes.js
+const express = require('express');
+const app = express();
 
-var express = require('express');
-var router = express.Router();
+// Define your route for cakes
+app.get('/cakes', (req, res) => {
+    // Declare the results array on the server-side
+    const results = [
+        { name: "Chocolate Cake", flavor: "Chocolate", price: 20 },
+        { name: "Red Velvet", flavor: "Red Velvet", price: 25 },
+        { name: "Strawberry Cake", flavor: "Strawberry", price: 18 }
+    ];
 
-router.get('/',function(req,res,next){
-    res.render('cakes',{title: 'search results - cakes'});
+    // Pass the results array to the Pug view
+    res.render('cakes', { results: results });
 });
 
-module.exports = router;
+app.listen(3000, () => {
+    console.log('Server is running on http://localhost:3000');
+});
