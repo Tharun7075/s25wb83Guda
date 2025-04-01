@@ -1,0 +1,22 @@
+extends layout
+
+block content 
+  h1= title 
+  p below are some ckae search results: 
+  -
+    var results = [
+            { name: "Chocolate Cake", flavor: "Chocolate", price: 20 },
+            { name: "Red Velvet", flavor: "Red Velvet", price: 25 },
+            { name: "Strawberry Cake", flavor: "Strawberry", price: 18 }
+    ];
+  .container-fluid 
+    .row 
+      each cake in results 
+        .col-sm-3.border.p-2
+          h3 #{cake.name}
+          p flavour: #{cake.flavour} 
+          p price: #{cake.price}
+  p 
+    a(href="/")Back to home
+        
+
