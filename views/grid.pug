@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  p You requested a grid with #{query.rows} rows and #{query.cols} columns.
+
+  //- Bootstrap grid for displaying the requested rows and columns
+  .container-fluid
+    .row
+      each rowIndex in range(0, query.rows)
+        .col-sm-1
+          each colIndex in range(0, query.cols)
+            .border.p-2
+              p Row: #{rowIndex + 1}, Col: #{colIndex + 1}
