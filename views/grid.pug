@@ -1,14 +1,27 @@
 extends layout
-
 block content
   h1= title
-  p You requested a grid with #{query.rows} rows and #{query.cols} columns.
+  p This is the grid display page.
 
-  //- Bootstrap grid for displaying the requested rows and columns
-  .container-fluid
-    .row
-      each rowIndex in range(0, query.rows)
-        .col-sm-1
-          each colIndex in range(0, query.cols)
-            .border.p-2
-              p Row: #{rowIndex + 1}, Col: #{colIndex + 1}
+  p Query rows: #{query.rows}, Query cols: #{query.cols}
+
+ 
+  - let rows = Number(query.rows)
+  - let cols = Number(query.cols)
+
+ 
+  if !Number.isInteger(rows) || !Number.isInteger(cols)
+    p Error: Rows and columns must be integers.
+  else if rows < 3 || rows > 13
+    p Error: Rows must be between 3 and 13.
+  else if cols < 3 || cols > 13
+    p Error: Columns must be between 3 and 13.
+  else
+   
+    table#outer(style="border-collapse: collapse; width: 50%; text-align: center;")
+      - for (let i = 0; i < rows; i++) {
+        tr#middle
+          - for (let j = 0; j < cols; j++) {
+            td(style="border: 1px solid black; padding: 10px;")= i - j
+          - }
+      - }
