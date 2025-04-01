@@ -1,16 +1,22 @@
-extends layout
-
-block content
-  h1= title
-  p Below are some cake search results:
-  
-  .container-fluid
-    .row
-      each cake in results
-        .col-sm-3.border.p-2
-          h3 #{cake.name}
-          p Flavor: #{cake.flavor} 
-          p Price: $#{cake.price}
-  
-  p
-    a(href='/') Back to home
+//- cakes.pug
+doctype html
+html(lang="en")
+  head
+    title Search Results for Cakes
+    link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")
+  body
+    block content
+      .container-fluid
+        .row
+          //- Unbuffered server-side code: Define results array with at least three cake objects
+          - var results = [
+            {name: 'Chocolate Cake', flavors: 'Chocolate, Vanilla', price: 15.99},
+            {name: 'Red Velvet Cake', flavors: 'Red Velvet, Cream Cheese', price: 20.99},
+            {name: 'Carrot Cake', flavors: 'Carrot, Walnut', price: 18.50}
+          ]
+          //- Iterate over results to display each cake
+          each cake in results
+            .col-sm-2
+              h3= cake.name
+              p Flavors: #{cake.flavors}
+              p Price: $#{cake.price}
