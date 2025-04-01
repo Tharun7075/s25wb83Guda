@@ -17,7 +17,7 @@ block content
     p Error: Columns must be between 3 and 13.
   else
     table(style="border-collapse: collapse; width: 50%; text-align: center;")
-      each _, rowIndex in Array(rows).fill()
+      each rowIndex in Array.from({ length: rows }, (_, i) => i)
         tr
-          each _, colIndex in Array(cols).fill()
-            td(style="border: 1px solid black; padding: 10px;")= rowIndex * cols + colIndex
+          each colIndex in Array.from({ length: cols }, (_, i) => i)
+            td(style="border: 1px solid black; padding: 10px;")= rowIndex - colIndex
