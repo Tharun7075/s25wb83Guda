@@ -1,7 +1,7 @@
 “Server for Guda’s Web Apps Assignment 10”
 
 Render server link - https://s25wb83guda.onrender.com/
-## class: cakes
-- **name** (string) - The name of the cake
-- **flavour** (string) - The flavour of the cake
-- **ptice** (number) - The price of the cake
+## Class: Cakes
+- **name** (String): The name of the cake (e.g., "Chocolate Cake").
+- **flavors** (String): The flavors included in the cake (e.g., "Chocolate, Vanilla").
+- **price** (Number): The price of the cake (e.g., 15.99).

@@ -8,7 +8,7 @@ html(lang="en")
     block content
       .container-fluid
         .row
-          //- Unbuffered server-side code: Define results array with at least three cake objects
+          //- Unbuffered server-side code: Define results array with cake objects
           - var results = [
             {name: 'Chocolate Cake', flavors: 'Chocolate, Vanilla', price: 15.99},
             {name: 'Red Velvet Cake', flavors: 'Red Velvet, Cream Cheese', price: 20.99},
@@ -22,4 +22,3 @@ html(lang="en")
                   h5.card-title= cake.name
                   p.card-text Flavors: #{cake.flavors}
                   p.card-text Price: $#{cake.price}
-

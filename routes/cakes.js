@@ -1,19 +1,15 @@
-//- cakes.js
+// cakes.js
 var express = require('express');
-var app = express();
+var router = express.Router();
 
-// Serve static files
-app.use(express.static('public'));
-
-// Set view engine
-app.set('view engine', 'pug');
-
-// Endpoint for Cakes
-app.get('/cakes', function(req, res) {
-    res.render('cakes'); // This will render cakes.pug
+/* GET cakes search results. */
+router.get('/', function(req, res, next) {
+  var results = [
+    {name: 'Chocolate Cake', flavors: 'Chocolate, Vanilla', price: 15.99},
+    {name: 'Red Velvet Cake', flavors: 'Red Velvet, Cream Cheese', price: 20.99},
+    {name: 'Carrot Cake', flavors: 'Carrot, Walnut', price: 18.50}
+  ];
+  res.render('cakes', { results: results });
 });
 
-// Start the server
-var server = app.listen(3000, function() {
-    console.log('Server running on http://localhost:3000');
-});
+module.exports = router;
