@@ -1,15 +1,14 @@
 extends layout
+
 block content
   h1= title
   p This is the grid display page.
 
   p Query rows: #{query.rows}, Query cols: #{query.cols}
 
- 
-  - let rows = Number(query.rows)
-  - let cols = Number(query.cols)
+  - var rows = Number(query.rows)
+  - var cols = Number(query.cols)
 
- 
   if !Number.isInteger(rows) || !Number.isInteger(cols)
     p Error: Rows and columns must be integers.
   else if rows < 3 || rows > 13
@@ -17,11 +16,8 @@ block content
   else if cols < 3 || cols > 13
     p Error: Columns must be between 3 and 13.
   else
-   
-    table#outer(style="border-collapse: collapse; width: 50%; text-align: center;")
-      - for (let i = 0; i < rows; i++) {
-        tr#middle
-          - for (let j = 0; j < cols; j++) {
-            td(style="border: 1px solid black; padding: 10px;")= i - j
-          - }
-      - }
+    table(style="border-collapse: collapse; width: 50%; text-align: center;")
+      each _, rowIndex in Array(rows).fill()
+        tr
+          each _, colIndex in Array(cols).fill()
+            td(style="border: 1px solid black; padding: 10px;")= rowIndex * cols + colIndex
