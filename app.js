@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 var cakesRouter = require('./routes/cakes');
 
 var gridRouter = require('./routes/grid');
+var pickRouter = require('./routes/pick');
 
 
 var app = express();
@@ -27,6 +28,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/cakes', cakesRouter);
 app.use('/grid', gridRouter);
+app.use('/pick', pickRouter);
 
 
 
