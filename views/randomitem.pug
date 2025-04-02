@@ -1,16 +1,24 @@
 extends layout
 
 block content
-  h1 Random image display
- 
+  h1 Random Image Display
 
   - var image_names = ['dog1.jpeg', 'dog 2.jpeg', 'dog 3.jpeg', 'dog 4.jpeg', 'dog 5.jpeg'];
 
+  .container
+    .row
+      - for (var i = 0; i < 3; i++)
+        - var randomIndex = Math.floor(Math.random() * image_names.length);
+        .col-md-4
+          img(
+            src=`/images/${image_names[randomIndex]}`,
+            alt=`Image ${randomIndex}`,
+            height="300",
+            width="300",
+            onclick=`buy(${randomIndex})`
+          )
 
-  - for (var i = 0; i < 3; i++)
-    - var randomIndex = Math.floor(Math.random() * 5);
-    img(src=`/images/${image_names[randomIndex]}`, alt=`Image of ${image_names[randomIndex]}`, height="300", width="300", onclick=`buy(${randonIndex})`)
   script.
     function buy(index) {
       alert('You purchased item ' + index);
-    }   
+    }
